@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Description</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: white;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      color: #1d1d1f;
+      transition: opacity 0.2s ease;
+      padding: 0;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-btn:hover {
+      opacity: 0.6;
+    }
+
+    .header-title {
+      font-family: 'Cormorant Unicase', serif;
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      flex: 1;
+      text-align: center;
+    }
+
+    .checkout-btn {
+      background-color: #1d1d1f;
+      color: white;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .checkout-btn:hover {
+      opacity: 0.8;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .product-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #f5f5f5;
+    }
+
+    .product-info-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product-title {
+      font-family: 'Cormorant Unicase', serif;
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .product-price {
+      font-size: 24px;
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .product-description {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .product-specs {
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 24px 0;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .spec-label {
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .spec-value {
+      color: #666;
+    }
+
+    .add-to-cart-btn {
+      background-color: #1d1d1f;
+      color: white;
+      padding: 16px 32px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+
+    .add-to-cart-btn:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .product-detail {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .product-title {
+        font-size: 28px;
+      }
+
+      .product-price {
+        font-size: 20px;
+      }
+
+      .header {
+        padding: 20px;
+      }
+
+      .header-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <button class="back-btn" onclick="window.history.back()">&lt;</button>
+    <h1 class="header-title">Product Details</h1>
+    <a class="checkout-btn" href = "checkout.html">Checkout</a>
+  </div>
+
+  <div class="container">
+    <div class="product-detail" id="productDetail">
+      <!-- Product will load here -->
+    </div>
+  </div>
+
+  <script>
+    const productData = {
+      'boz-steel-watch-1': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/bay_ice_gold.png',
+        description: 'Elegant steel watch crafted with precision. Features a minimalist design with a premium stainless steel case and comfortable leather strap. Perfect for everyday wear and special occasions.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'boz-steel-watch-2': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/bay_ice_black.png',
+        description: 'Timeless black steel watch with a sophisticated aesthetic. Combines durability with elegance, featuring a sapphire crystal and precise Japanese movement.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'boz-steel-watch-3': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/bay_ice_rose_gold.png',
+        description: 'Luxurious rose gold steel watch with a warm, sophisticated tone. Designed for those who appreciate modern elegance and timeless style.',
+        specs: {
+          'Material': 'Rose Gold Stainless Steel',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'boz-steel-watch-4': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/bay_ice_silver.png',
+        description: 'Pristine silver steel watch with a polished finish. Versatile and elegant, suitable for both casual and formal settings.',
+        specs: {
+          'Material': 'Silver Stainless Steel',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'boz-steel-watch-5': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/bay_ice_studded_diamonds.png',
+        description: 'Exquisite steel watch adorned with studded diamonds. A statement piece that combines luxury with contemporary design.',
+        specs: {
+          'Material': 'Stainless Steel with Diamonds',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'bi-studded-gold-diamonds': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/bi_studded_gold_diamonds.png',
+        description: 'Premium gold watch with diamond studs. The perfect blend of luxury and sophistication for the discerning gentleman.',
+        specs: {
+          'Material': 'Gold Plated Steel with Diamonds',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'g1-steel-watch': {
+        name: 'G1 Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/BOZ-Valour.webp',
+        description: 'Professional-grade steel watch designed for the modern man. Features robust construction and precision engineering for everyday reliability.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Case Diameter': '44mm',
+          'Water Resistance': '100m',
+          'Movement': 'Automatic',
+          'Warranty': '3 Years'
+        }
+      },
+      'g1-rose-gold': {
+        name: 'G1 Rose Gold – For Her',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/BOZ_Mila_Gold_Wristwatch_with_Pink_face.webp',
+        description: 'Elegant rose gold watch with a delicate pink face. A feminine timepiece that exudes grace and sophistication with every glance.',
+        specs: {
+          'Material': 'Rose Gold Plated Steel',
+          'Case Diameter': '36mm',
+          'Water Resistance': '30m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'g1-deep-brown': {
+        name: 'G1 Deep Brown – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/BOZ_Selene_Wristwatch_for_her_female_brown_watch.webp',
+        description: 'Rich deep brown leather strap with steel casing. A versatile watch that complements any wardrobe with its warm, earthy tones.',
+        specs: {
+          'Material': 'Stainless Steel with Brown Leather',
+          'Case Diameter': '40mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'boz-steel-rose-gold': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/BOZ_Steel_Rose_Gold_Watch_-_For_Him.webp',
+        description: 'Striking rose gold steel watch combining warmth and durability. An excellent choice for those seeking a balance between style and substance.',
+        specs: {
+          'Material': 'Rose Gold Stainless Steel',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'boz-moissanite-watch': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/BOZZIVAMOISSANITEWATCH_1.webp',
+        description: 'Luxurious moissanite-set steel watch that sparkles with brilliance. A contemporary piece that showcases exceptional craftsmanship.',
+        specs: {
+          'Material': 'Stainless Steel with Moissanite',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'boz-steel-watch-12': {
+        name: 'BOZ Steel Watch – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/watches/bay_ice_black.png',
+        description: 'Classic black steel watch with timeless appeal. Reliable and elegant, perfect for daily wear and special occasions alike.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Case Diameter': '42mm',
+          'Water Resistance': '50m',
+          'Movement': 'Quartz',
+          'Warranty': '2 Years'
+        }
+      },
+      'necklace-1': {
+        name: 'BOZ Steel Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/lace_!.png',
+        description: 'Stylish steel necklace with contemporary design. Perfect for adding a touch of sophistication to any outfit.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Chain Length': '50cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      },
+      'necklace-2': {
+        name: 'BOZ Steel Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/lace_2.png',
+        description: 'Elegant pendant necklace with sleek lines and modern aesthetic. A versatile piece that works with casual or formal wear.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Chain Length': '50cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      },
+      'necklace-3': {
+        name: 'BOZ Steel Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/lace_3.png',
+        description: 'Bold and striking necklace design with premium steel construction. Makes a statement while maintaining everyday wearability.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Chain Length': '50cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      },
+      'necklace-4': {
+        name: 'BOZ Steel Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/lace_4.png',
+        description: 'Refined steel necklace with minimalist charm. Perfect for those who prefer understated elegance in their jewelry.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Chain Length': '50cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      },
+      'necklace-5': {
+        name: 'BOZ Steel Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/lace_5.png',
+        description: 'Sophisticated pendant necklace with intricate details. A timeless piece that elevates your personal style.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Chain Length': '50cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      },
+      'necklace-6': {
+        name: 'BOZ Steel Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/lace_6.png',
+        description: 'Contemporary steel necklace with clean lines and premium finish. A versatile accessory for any wardrobe.',
+        specs: {
+          'Material': 'Stainless Steel',
+          'Chain Length': '50cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      },
+      'g1-steel-necklace': {
+        name: 'G1 Steel Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/lace_7.png',
+        description: 'Professional-grade steel necklace with robust construction. Designed for those seeking durability and style combined.',
+        specs: {
+          'Material': 'Premium Stainless Steel',
+          'Chain Length': '55cm',
+          'Pendant Size': '2.5cm',
+          'Finish': 'Matte',
+          'Warranty': '2 Years'
+        }
+      },
+      'g1-rose-gold-necklace': {
+        name: 'G1 Rose Gold Necklace – For Her',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/ChatGPT_Image_Jul_14_2025_12_18_37_PM.webp',
+        description: 'Luxurious rose gold necklace with feminine elegance. A beautiful piece that adds warmth and sophistication to your look.',
+        specs: {
+          'Material': 'Rose Gold Plated Steel',
+          'Chain Length': '45cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      },
+      'g1-deep-brown-necklace': {
+        name: 'G1 Deep Brown Necklace – For Him',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/Dainty_Chain_Necklace_in_18k_Gold_Modejl.webp',
+        description: 'Earthy brown-toned necklace with rich character. Perfect for adding warmth and depth to your jewelry collection.',
+        specs: {
+          'Material': 'Stainless Steel with Brown Accent',
+          'Chain Length': '50cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Matte',
+          'Warranty': '1 Year'
+        }
+      },
+      'eternal-heart-pendant': {
+        name: 'Eternal Heart Diamond Pendant Necklace',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/Eternal_Heart_Diamond_Pendant_Necklace_in_18K_Gold.webp',
+        description: 'Timeless heart-shaped pendant adorned with diamonds. A romantic and elegant piece that celebrates love and beauty.',
+        specs: {
+          'Material': '18K Gold with Diamonds',
+          'Chain Length': '45cm',
+          'Pendant Size': '2.5cm',
+          'Stone': 'Diamond',
+          'Warranty': '2 Years'
+        }
+      },
+      'everyday-diamond-necklace': {
+        name: 'Everyday Natural Diamond Necklace',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/Everyday_Natural_Diamond_Necklace_in_18K_Gold.webp',
+        description: 'Versatile diamond necklace perfect for everyday elegance. Features natural diamonds set in premium 18K gold.',
+        specs: {
+          'Material': '18K Gold with Natural Diamonds',
+          'Chain Length': '50cm',
+          'Diamond Weight': '1.2ct',
+          'Finish': 'Polished',
+          'Warranty': '2 Years'
+        }
+      },
+      'silver-heart-necklace': {
+        name: 'Silver Heart-Shaped Necklace',
+        price: '₦92,800.00 NGN',
+        image: '../Images/necklaces/ilver_heart-shaped_necklace_and_earrings.webp',
+        description: 'Charming silver heart necklace with delicate design. A sweet and timeless piece perfect for any occasion.',
+        specs: {
+          'Material': 'Silver Plated Steel',
+          'Chain Length': '45cm',
+          'Pendant Size': '2cm',
+          'Finish': 'Polished',
+          'Warranty': '1 Year'
+        }
+      }
+    };
+
+    function getProductFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('product');
+    }
+
+    function displayProduct() {
+      const productId = getProductFromURL();
+      const product = productData[productId];
+
+      if (!product) {
+        document.getElementById('productDetail').innerHTML = '<p>Product not found</p>';
+        return;
+      }
+
+      let specsHTML = '';
+      for (const [label, value] of Object.entries(product.specs)) {
+        specsHTML += `<div class="spec-item"><span class="spec-label">${label}</span><span class="spec-value">${value}</span></div>`;
+      }
+
+      const html = `<div><img src="${product.image}" alt="${product.name}" class="product-image"></div><div class="product-info-section"><h1 class="product-title">${product.name}</h1><p class="product-price">${product.price}</p><p class="product-description">${product.description}</p><div class="product-specs">${specsHTML}</div><button class="add-to-cart-btn">Add to Cart</button></div>`;
+
+      document.getElementById('productDetail').innerHTML = html;
+    }
+
+    displayProduct();
+  </script>
+
+</body>
+</html>

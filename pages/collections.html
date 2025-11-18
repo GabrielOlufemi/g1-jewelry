@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html, body {
+          margin: 0;
+          padding: 0;
+        }
+        
+        /* Collections Header */
+        .collections-header {
+          width: 100%;
+          height: 30vh; /* gives it a hero-banner look */
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          margin: 0 0 60px 0;
+        }
+
+        /* soft dark overlay to make the text readable */
+        .collections-header::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.35); 
+        }
+
+        /* text container */
+        .collections-header-content {
+          position: relative;
+          text-align: center;
+          color: white;
+          z-index: 2;
+        }
+
+        .collections-header-content h1 {
+          font-family: 'Cormorant Unicase', serif;
+          font-size: 52px;
+          font-weight: 400;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+        }
+
+        .collections-header-content p {
+          font-size: 18px;
+          letter-spacing: 1px;
+        }
+
+        /* Items Section */
+        .items-section {
+          width: 100%;
+          padding: 80px 20px;
+          background: #f9f9f9;
+        }
+
+        .items-header {
+          max-width: 1200px;
+          margin: 0 auto 60px;
+        }
+
+        .items-header h2 {
+          font-family: 'Cormorant Unicase', serif;
+          font-size: 42px;
+          font-weight: 400;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+
+        /* Products Grid */
+        .products-grid {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 40px;
+        }
+
+        /* Product Card */
+        .product-card {
+          cursor:pointer;
+          display: flex;
+          flex-direction: column;
+          text-decoration: none;
+          color: inherit;
+          transition: transform 0.3s ease;
+          background: white;
+          padding: 20px;
+        }
+
+        .product-card:hover {
+          transform: translateY(-8px);
+        }
+
+        .product-image {
+          width: 100%;
+          aspect-ratio: 1;
+          object-fit: cover;
+          margin-bottom: 24px;
+          background: #f5f5f5;
+        }
+
+        .product-info {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .product-name {
+          font-size: 16px;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+        }
+
+        .product-price {
+          font-size: 18px;
+          font-weight: 600;
+          color: #1d1d1f;
+        }
+
+        .product-actions {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-top: 8px;
+        }
+
+        .add-to-cart-btn {
+          flex: 1;
+          background-color: #1d1d1f;
+          color: white;
+          padding: 14px 24px;
+          font-size: 14px;
+          font-weight: 600;
+          border: none;
+          cursor: pointer;
+          transition: opacity 0.2s ease;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+
+        .add-to-cart-btn:hover {
+          opacity: 0.8;
+        }
+
+        .like-btn {
+          background: none;
+          border: none;
+          font-size: 20px;
+          cursor: pointer;
+          color: #1d1d1f;
+          transition: color 0.2s ease;
+          padding: 10px;
+        }
+
+        .like-btn:hover {
+          color: #d32f2f;
+        }
+
+        @media (max-width: 768px) {
+          .collections-section {
+            padding: 60px 20px;
+          }
+
+          .watches-section {
+            padding: 60px 20px;
+          }
+
+          .collections-header h1,
+          .watches-header h2 {
+            font-size: 36px;
+          }
+
+          .products-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+          }
+        }
+
+  </style>
+</head>
+<body>
+
+    <!-- Collections Hero Header -->
+    <div class="collections-header" style="background-image: url('https://images.pexels.com/photos/8706554/pexels-photo-8706554.jpeg');">
+      <div class="collections-header-content">
+        <h1>Our Collections</h1>
+        <p>Discover our exquisite jewelry collection curated for you</p>
+      </div>
+    </div>
+
+    <!-- watches section -->
+    <div class="items-section">
+      <div class="items-header">
+        <h2>Watches</h2>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- Watch 1 Card -->
+        <a href="product-description.html?product=boz-steel-watch-1" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/bay_ice_gold.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 2 Card -->
+        <a href="product-description.html?product=boz-steel-watch-2" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/bay_ice_black.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 3 Card -->
+        <a href="product-description.html?product=boz-steel-watch-3" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/bay_ice_rose_gold.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 4 Card -->
+        <a href="product-description.html?product=boz-steel-watch-4" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/bay_ice_silver.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 5 Card -->
+        <a href="product-description.html?product=boz-steel-watch-5" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images//watches/bay_ice_studded_diamonds.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 6 Card -->
+        <a href="product-description.html?product=bi-studded-gold-diamonds" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images//watches/bi_studded_gold_diamonds.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 7 Card -->
+        <a href="product-description.html?product=g1-steel-watch" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/BOZ-Valour.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">G1 Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 8 Card -->
+        <a href="product-description.html?product=g1-rose-gold" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/BOZ_Mila_Gold_Wristwatch_with_Pink_face.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">G1 Rose Gold – For Her</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 9 Card -->
+        <a href="product-description.html?product=g1-deep-brown" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/BOZ_Selene_Wristwatch_for_her_female_brown_watch.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">G1 Deep Brown – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 10 Card -->
+        <a href="product-description.html?product=boz-steel-rose-gold" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/watches/BOZ_Steel_Rose_Gold_Watch_-_For_Him.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 11 Card -->
+        <a href="product-description.html?product=boz-moissanite-watch" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images//watches/BOZZIVAMOISSANITEWATCH_1.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Watch 12 Card -->
+        <a href="product-description.html?product=boz-steel-watch-12" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images//watches/bay_ice_black.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    <!-- necklaces section -->
+    <div class="items-section">
+      <div class="items-header">
+        <h2>Necklaces</h2>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- Necklace 1 Card -->
+        <a href="product-description.html?product=necklace-1" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/lace_!.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 2 Card -->
+        <a href="product-description.html?product=necklace-2" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/lace_2.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 3 Card -->
+        <a href="product-description.html?product=necklace-3" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/lace_3.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 4 Card -->
+        <a href="product-description.html?product=necklace-4" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/lace_4.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 5 Card -->
+        <a href="product-description.html?product=necklace-5" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/lace_5.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 6 Card -->
+        <a href="product-description.html?product=necklace-6" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/lace_6.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 7 Card -->
+        <a href="product-description.html?product=g1-steel-necklace" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/lace_7.png" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">G1 Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 8 Card -->
+        <a href="product-description.html?product=g1-rose-gold-necklace" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/ChatGPT_Image_Jul_14_2025_12_18_37_PM.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">G1 Rose Gold – For Her</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 9 Card -->
+        <a href="product-description.html?product=g1-deep-brown-necklace" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/Dainty_Chain_Necklace_in_18k_Gold_Modejl.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">G1 Deep Brown – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 10 Card -->
+        <a href="product-description.html?product=eternal-heart-pendant" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/Eternal_Heart_Diamond_Pendant_Necklace_in_18K_Gold.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 11 Card -->
+        <a href="product-description.html?product=everyday-diamond-necklace" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/Everyday_Natural_Diamond_Necklace_in_18K_Gold.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Necklace 12 Card -->
+        <a href="product-description.html?product=silver-heart-necklace" style="text-decoration: none; color: inherit;">
+          <div class="product-card">
+            <img src="../Images/necklaces/ilver_heart-shaped_necklace_and_earrings.webp" alt="BOZ Steel Watch" class="product-image">
+            <div class="product-info">
+              <h3 class="product-name">BOZ Steel Watch – For Him</h3>
+              <p class="product-price">₦92,800.00 NGN</p>
+              <div class="product-actions">
+                <button class="like-btn" title="Like product"><i class="far fa-heart"></i></button>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    
+  </div>
+
+  </section>
+
+</body>
+</html>
