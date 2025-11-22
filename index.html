@@ -317,13 +317,13 @@
         /* Newsletter Section */
         .newsletter-section {
             color: black;
-            padding: 80px 20px;
+            padding: 60px 20px;
             width: 100%;
             background: #fff;
         }
 
         .newsletter-container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
@@ -360,16 +360,15 @@
             display: flex;
             gap: 0;
             width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
+            flex-wrap: wrap;
         }
 
         .newsletter-input {
             padding: 16px 20px;
             border: 1px solid #1d1d1f;
-            border-right: none;
             font-size: 16px;
             flex: 1;
+            min-width: 200px;
             background: transparent;
             color: #1d1d1f;
         }
@@ -394,6 +393,7 @@
             transition: all 0.2s ease;
             letter-spacing: 1px;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .newsletter-btn:hover {
@@ -485,10 +485,26 @@
             .mobile-menu-btn {
                 display: none !important;
             }
+
+            .newsletter-form {
+                flex-wrap: nowrap;
+            }
+
+            .newsletter-input {
+                border-right: none;
+            }
+
+            .newsletter-title {
+                font-size: 48px;
+            }
         }
 
         /* Mobile */
         @media (max-width: 767px) {
+            header {
+                position: relative;
+            }
+
             .desktop-nav {
                 display: none !important;
             }
@@ -513,6 +529,29 @@
             .hero-link {
                 font-size: 32px;
             }
+
+            .newsletter-section {
+                padding: 40px 20px;
+            }
+
+            .newsletter-title {
+                font-size: 32px;
+            }
+
+            .newsletter-form {
+                flex-wrap: nowrap;
+            }
+
+            .newsletter-input {
+                border-right: none;
+                flex: 1;
+                min-width: 0;
+            }
+
+            .newsletter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
         }
     </style>
 </head>
@@ -529,11 +568,6 @@
                     </li>
                     <li class="nav-item">
                         <a href="#categories">Categories</a>
-                        <!-- <div class="nav-dropdown">
-                            <a href="#new">New Arrivals</a>
-                            <a href="#wedding">Wedding & Engagement</a>
-                            <a href="#mens">Men's Jewelry</a>
-                        </div> -->
                     </li>
                     <li><a href="#newsletter-tag">Newsletter</a></li>
                 </ul>
